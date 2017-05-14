@@ -3,3 +3,32 @@
 	margin-top: 30px;
 	margin-bottom:10px;
 }
+
+.well, .label, .form-control {
+	border-radius: 0px;
+}
+
+.login-fields {
+	background-color: #c5c1c1;
+	padding-top: 20px;
+	margin-bottom: 10px;
+}
+
+.control-label {
+	background-color: #e2dcdc;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-right: 10px;
+	padding-left:10px;
+	margin-top:1px;
+}
+
+.username-field, .pwd-field {
+	padding-right: 0px;
+	padding-left: 20px;
+}
+
+.username-lbl, .pwd-lbl {
+	padding-left: 0px;
+}
+
