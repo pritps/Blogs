@@ -1,0 +1,34 @@
+.navbar-fixed-left {
+	width: 200px;
+	position: fixed;
+	border-radius: 0;
+	height: 100%;
+	background-color: #eee;
+}
+
+.navbar-fixed-left .navbar-nav > li {
+	float: none;  /* Cancel default li float: left */
+	width: 200px;
+}
+
+.navbar-fixed-left + .container {
+	padding-left: 115px;
+}
+
+.brand {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.brand h1 {
+	margin-bottom: 0px;
+}
+
+.nav-items {
+	margin-top: 10px;	
+}
+
+ul.nav-items a {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
