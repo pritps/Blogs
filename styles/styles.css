@@ -23,12 +23,12 @@
 	margin-top:1px;
 }
 
-.username-field, .pwd-field {
+.username-field, .pwd-field, .email-field, .verify-field {
 	padding-right: 0px;
 	padding-left: 20px;
 }
 
-.username-lbl, .pwd-lbl {
+.username-lbl, .pwd-lbl, .email-lbl, .verify-lbl {
 	padding-left: 0px;
 }
 

@@ -28,18 +28,18 @@
 			<div class="jumbotron">
 				<div class="row">
 					<div class="col-md-6">
-						<h1>Welcome back!</h1> 
-						<p>Please login below</p>
+						<h1>Become a Blogger!</h1> 
+						<p>Create a new account below</p>
 					</div>
 					<div class="col-md-6">
-						<img src="../images/lock.png" width="150" height="150" class="pull-right">
+						<img src="../images/writing.png" width="150" height="200" class="pull-right">
 					</div>					
 				</div>
 			</div>
 			<div class="jumbotron">
-				<form action="#" method="post" class="form-horizontal">
-					<div class="row">
-						<div class="col-md-4 col-md-offset-4 login-fields">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="row login-fields">
 							<div class="form-group">
 								<div class="col-md-4 col-md-push-8 text-center username-lbl">
 									<label class="control-label" for="username">Username</label>
@@ -49,6 +49,16 @@
 								</div>
 							</div>
 							<div class="form-group">
+								<div class="col-md-4 col-md-push-8 text-center email-lbl">
+									<label class="control-label" for="email">Email</label>
+								</div>
+								<div class="col-md-8 col-md-pull-4 email-field">
+									<input type="email" class="form-control" id="email">
+								</div>
+							</div>
+						</div>
+						<div class="row login-fields">
+							<div class="form-group">
 								<div class="col-md-4 col-md-push-8 text-center pwd-lbl">
 									<label class="control-label" for="pwd">Password</label>
 								</div>
@@ -56,14 +66,42 @@
 									<input type="password" class="form-control" id="pwd">
 								</div>
 							</div>
+							<div class="form-group">
+								<div class="col-md-4 col-md-push-8 text-center verify-lbl">
+									<label class="control-label" for="verify">Verify</label>
+								</div>
+								<div class="col-md-8 col-md-pull-4 verify-field">
+									<input type="password" class="form-control" id="verify">
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<button type="submit" class="btn btn-primary btn-lg">Log In</button>
+					<div class="col-md-6">
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="upload">
+								</div>
+								<button type="button" class="btn btn-default">Upload Portrait</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group">
+								<div class="col-md-12 text-center">
+									<label class="control-label" for="biography">Quick Biography</label>
+								</div>
+								<div class="col-md-12">
+									<textarea class="form-control" id="biography" name="biography" rows="5"></textarea>
+								</div>
+							</div>
 						</div>
 					</div>
-				</form>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<button type="submit" class="btn btn-primary btn-lg"><h4>Start Blogging!</h4></button>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!--JQuery-->
