@@ -28,30 +28,43 @@
 			<div class="jumbotron">
 				<div class="row">
 					<div class="col-md-10">
-						<h1>The Blog site</h1> 
-						<p>Your one-stop shop for internet blogs</p>
+						<h1>What's on your mind?</h1> 
 					</div>
 					<div class="col-md-2 pull-right">
-						<img src="../images/blog_logo.png" width="150" height="150">
+						<img src="../images/writing.png" width="175" height="200">
 					</div>					
 				</div>
 			</div>
 			<div class="jumbotron">
-				<h4><strong>The internet is abuzz with our blog content.</strong></h4><hr>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut porta dui. Nam
-					maximus et mauris eu tempor. Nulla rhoncus lorem pharetra molestie blandit. Set
-					pellentesque lacus quis aliquam maximus. Integer sodales eget purus vitae condimentum.
-					Phasellus neque neque, rutrum ut mattis ut, tinicidunt eget ante. Vivamus
-					faucibus augue in euismod ultrices. 
-				</p><hr>
-				<h4><strong>Hear what others are saying about us!</strong></h4>
-				<div id="comments">
-					<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut porta dui. Nam
-						maximus et mauris eu tempor." - long time user Sally Nguyen
-					</p>
-					<p>"Lorem ipsum dolor sit amet, consectetur..." - blog contributer Terry Stone
-					</p>
-				</div>
+				<form action="#" method="post" class="form-horizontal">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-4 col-md-push-8 text-center title-lbl">
+								<label class="control-label" for="username">Title</label>
+							</div>
+							<div class="col-md-8 col-md-pull-4 title-field">
+								<input type="text" class="form-control" id="title">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-12 blog-entry-lbl">
+								<label class="control-label" for="blog-entry">Blog Entry</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<textarea class="form-control" id="blog-entry" name="blog-entry" rows="10"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<button type="submit" class="btn btn-primary btn-lg"><h4>Save</h4></button>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 		<!--JQuery-->
