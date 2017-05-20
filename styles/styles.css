@@ -1,10 +1,15 @@
+.thumbnail {
+	margin-top: 30px;
+	background-color: #eee;
+}
+
 .container .jumbotron {
     border-radius: 0px;
 	margin-top: 30px;
 	margin-bottom:10px;
 }
 
-.well, .label, .form-control {
+.well, .label, .form-control, .thumbnail {
 	border-radius: 0px;
 }
 
@@ -36,4 +41,13 @@
 #comments {
 	margin-left: 50px;
 	margin-top: 30px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0; 
 }

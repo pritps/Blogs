@@ -11,7 +11,7 @@
     {
         private $_pdo;
         
-        function __construct()
+        public function __construct()
         {
             //Require configuration file
             require_once '/home/psingh50/blogging_db_config.php';
@@ -39,7 +39,7 @@
          *
          * @return the id of the blogger inserted or sequence value
          */
-        function createBlogger(Blogger $blogger)
+        public function createBlogger(Blogger $blogger)
         {
             $insert = 'INSERT INTO blogger (username, password, email, bio, excerpt, portrait)
 										VALUES (:username, :pwd, :email, :bio, :excerpt, :portrait)';
@@ -67,7 +67,7 @@
          *
          * @return 
          */
-        function getBlogger($id)
+        public function getBlogger($id)
         {
             $select = "SELECT id, username, password, email, bio, excerpt, portrait
 						FROM blogger WHERE id=:bloggerId";
@@ -84,7 +84,7 @@
          *
          * @return 
          */
-        function getAllBloggers()
+        public function getAllBloggers()
         {
              $select = "SELECT * FROM blogger";
              

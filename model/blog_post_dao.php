@@ -66,8 +66,8 @@
         function updateBlogPost(BlogPost $blogPost)
         {
             $update = 'UPDATE blog_post
-				SET blog_content=:blogContent, title=:title
-				WHERE id=:blogId';
+				SET blog_content = :blogContent, title = :title
+				WHERE id = :blogId';
 										
             $statement = $this->_pdo->prepare($update);
 			
@@ -89,7 +89,7 @@
         function getBlogPost($id)
         {
             $select = "SELECT id, blogger_id, title, blog_content, created_date
-						FROM blog_post WHERE id=:blogId";
+						FROM blog_post WHERE id = :blogId";
              
             $statement = $this->_pdo->prepare($select);
             $statement->bindValue(':blogId', $id, PDO::PARAM_INT);
@@ -109,7 +109,7 @@
         function getBlogPosts($id)
         {
             $select = "SELECT id, blogger_id, title, blog_content, created_date
-						FROM blog_post WHERE id=:bloggerId";
+						FROM blog_post WHERE id = :bloggerId";
              
             $statement = $this->_pdo->prepare($select);
             $statement->bindValue(':bloggerId', $id, PDO::PARAM_INT);
@@ -117,6 +117,22 @@
              
             return $statement->fetchAll(PDO::FETCH_ASSOC);
         }
+		
+		/**
+         * Delete a blog post with given id
+         *
+         * @access public
+         * @param int $id the id of the Blog Post
+         *
+         * @return 
+         */
+		function deleteBlogPost($id) {
+			$delete = "DELETE FROM blog_post WHERE id = :id";
+			
+			$statement = $this->_pdo->prepare($delete);
+            $statement->bindValue(':id', $id, PDO::PARAM_INT);
+            $statement->execute();
+		}
         
     }
 	?>
