@@ -1,5 +1,25 @@
+.top-margin-30 {
+	margin-top: 30px;
+}
+
+.top-margin-10 {
+	margin-top: 10px;
+}
+
+.left-margin-20 {
+	margin-left: 20px;
+}
+
 .thumbnail {
 	margin-top: 30px;
+	background-color: #eee;
+}
+
+.row-with-background {
+	background-color: #eee;
+}
+
+.col-with-background {
 	background-color: #eee;
 }
 
