@@ -15,21 +15,15 @@
 	background-color: #eee;
 }
 
-.row-with-background {
+.dark-grey-background {
+	background-color: #c5c1c1;
+}
+
+.light-grey-background {
 	background-color: #eee;
 }
 
-.col-with-background {
-	background-color: #eee;
-}
-
-.container .jumbotron {
-    border-radius: 0px;
-	margin-top: 30px;
-	margin-bottom:10px;
-}
-
-.well, .label, .form-control, .thumbnail {
+.well, .label, .form-control, .thumbnail, .container .jumbotron {
 	border-radius: 0px;
 }
 
