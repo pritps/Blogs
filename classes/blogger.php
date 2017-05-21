@@ -7,7 +7,6 @@
 		private $_portrait;
 		private $_bio;
 		private $_blog_count;
-		private $_excerpt;
 		
 		public function __construct($username, $email, $password) {
 			$this->_username = $username;
@@ -39,10 +38,6 @@
 			$this->setBlogCount = $count;
 		}
 		
-		public function setExcerpt($excerpt) {
-			$this->setExcerpt = $excerpt;
-		}
-		
 		public function getUsername() {
 			return $this->_username;
 		}
@@ -52,7 +47,7 @@
 		}
 		
 		public function getPassword() {
-			return return $this->_password;
+			return $this->_password;
 		}
 		
 		public function getPortrait() {
@@ -67,8 +62,11 @@
 			return $this->_blog_count;
 		}
 		
-		public function getExcerpt() {
-			return $this->_excerpt;
+		public static function getBloggerInstance($row) {
+			$blogger = new Blogger($row['username'],$row['email'],$row['password']);
+			$blogger->setBio($row['bio']);
+			$blogger->setPortrait($row['portrait']);
+			return $blogger;
 		}
 	}
 ?>

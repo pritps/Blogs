@@ -23,17 +23,17 @@
 	background-color: #eee;
 }
 
-.well, .label, .form-control, .thumbnail, .container .jumbotron {
+.well, .label, .form-control, .thumbnail, .container .jumbotron, #btn-upload-portrait {
 	border-radius: 0px;
 }
 
 .login-fields {
 	background-color: #c5c1c1;
 	padding-top: 20px;
-	margin-bottom: 10px;
 }
 
-.control-label {
+.sign-up-form-label {
+	text-align: center;
 	background-color: #e2dcdc;
 	padding-top: 4px;
 	padding-bottom: 4px;
@@ -43,13 +43,23 @@
 	width: 100px;
 }
 
+.bordered-label {
+	border: 1px solid #ccc;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.form-horizontal .control-label {
+	text-align: center;
+}
+
 .username-field, .pwd-field, .email-field, .verify-field {
 	padding-right: 0px;
 	padding-left: 20px;
 }
 
 .username-lbl, .pwd-lbl, .email-lbl, .verify-lbl {
-	padding-left: 0px;
+	padding-left: 5px;
 }
 
 #comments {

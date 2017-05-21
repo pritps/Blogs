@@ -41,16 +41,15 @@
          */
         public function createBlogger(Blogger $blogger)
         {
-            $insert = 'INSERT INTO blogger (username, password, email, bio, excerpt, portrait)
-										VALUES (:username, :pwd, :email, :bio, :excerpt, :portrait)';
+            $insert = 'INSERT INTO blogger (username, password, email, bio, portrait)
+										VALUES (:username, :pwd, :email, :bio, :portrait)';
 										
             $statement = $this->_pdo->prepare($insert);
 			
             $statement->bindValue(':username', $blogger->getUsername(), PDO::PARAM_STR);
             $statement->bindValue(':pwd', $blogger->getPassword(), PDO::PARAM_STR);
             $statement->bindValue(':email', $blogger->getEmail(), PDO::PARAM_STR);
-			$statement->bindValue(':bio', $blogger->getBio(), PDO::PARAM_STR);       
-			$statement->bindValue(':excerpt', $blogger->getExcerpt(), PDO::PARAM_STR);
+			$statement->bindValue(':bio', $blogger->getBio(), PDO::PARAM_STR);
 			$statement->bindValue(':portrait', $blogger->getPortrait(), PDO::PARAM_STR);
             $statement->execute();
             
@@ -67,16 +66,49 @@
          *
          * @return 
          */
-        public function getBlogger($id)
+        public function getBloggerById($id)
         {
-            $select = "SELECT id, username, password, email, bio, excerpt, portrait
+            $select = "SELECT id, username, password, email, bio, portrait
 						FROM blogger WHERE id=:bloggerId";
              
             $statement = $this->_pdo->prepare($select);
             $statement->bindValue(':bloggerId', $id, PDO::PARAM_INT);
             $statement->execute();
              
-            return $statement->fetch(PDO::FETCH_ASSOC);
+            $row = $statement->fetch(PDO::FETCH_ASSOC);
+			
+			if($row) {
+				return Blogger::getBloggerInstance($row);
+			} else {
+				return NULL;
+			}
+        }
+		
+		/**
+         * Returns a Blogger that has the given username and password.
+         *
+         * @access public
+         * @param string $username username of the user trying to login
+         * @param string $pwd password of the user trying to login
+         * @return Blogger instance if valid user, and NULL otherwise
+         */
+        public function validateLoginUser($username, $pwd)
+        {
+            $select = "SELECT id, username, password, email, bio, portrait
+						FROM blogger WHERE username = :username and password = :password";
+             
+            $statement = $this->_pdo->prepare($select);
+            $statement->bindValue(':username', $username, PDO::PARAM_STR);
+            $statement->bindValue(':password', $pwd, PDO::PARAM_STR);
+			$statement->execute();
+             
+            $row = $statement->fetch(PDO::FETCH_ASSOC);
+			
+			if($row) {
+				return Blogger::getBloggerInstance($row);
+			} else {
+				return NULL;
+			}
         }
 		
 		/**
@@ -91,7 +123,14 @@
             $statement = $this->_pdo->prepare($select);
             $statement->execute();
              
-            return $statement->fetchAll(PDO::FETCH_ASSOC);
+            $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+			
+			$blogger = array();
+			foreach($rows as $row) {
+				$bloggers[] = Blogger::getBloggerInstance($row);
+			}
+			
+			return $blogger;
         }
         
     }
