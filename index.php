@@ -12,6 +12,7 @@
 	//Set Debug Mode
 	$f3->set('DEBUG', 3);
 	
+	$f3->set('PROJECT_ROOT', 'http://psingh50.greenrivertech.net/328/Blogs');
 	//Instantiate the database class
 	$bloggerDAO = new BloggerDAO();
 	$blogPostDAO = new BlogPostDAO();
@@ -21,15 +22,6 @@
 		$bloggers = $GLOBALS['bloggerDAO']->getAllBloggers();
 		$f3->set('bloggers', $bloggers);
 		echo Template::instance()->render('pages/home.html');
-	});
-	
-	//View users blogs
-	$f3->route('GET /viewBlogs/blogger/@id', function($f3, $params){
-		$blogger = $GLOBALS['bloggerDAO']->getBloggerById($params['id']);
-		$blogPosts = $GLOBALS['blogPostDAO']->getBlogPosts($params['id']);
-		$f3->set('blogger', $blogger);
-		$f3->set('blogPosts', $blogPosts);
-		echo Template::instance()->render('pages/user_blogs.html');
 	});
 	
 	//Login Page
@@ -74,6 +66,24 @@
 			$f3->set('blogPosts', $blogPosts);
 			echo $view->render('pages/logged_in_user_blogs.html');
 		}		
+	});
+	
+	//View users blogs
+	$f3->route('GET /viewBlogs/blogger/@id', function($f3, $params){
+		$blogger = $GLOBALS['bloggerDAO']->getBloggerById($params['id']);
+		$blogPosts = $GLOBALS['blogPostDAO']->getBlogPosts($params['id']);
+		$f3->set('blogger', $blogger);
+		$f3->set('blogPosts', $blogPosts);
+		echo Template::instance()->render('pages/user_blogs.html');
+	});
+	
+		//View user blog
+	$f3->route('GET /viewBlog/blogger/@bloggerId/blogPost/@blogPostId', function($f3, $params){
+		$blogger = $GLOBALS['bloggerDAO']->getBloggerById($params['bloggerId']);
+		$blogPost = $GLOBALS['blogPostDAO']->getBlogPost($params['blogPostId']);
+		$f3->set('blogger', $blogger);
+		$f3->set('blogPost', $blogPost);
+		echo Template::instance()->render('pages/user_blog.html');
 	});
 	
 	//Logged In User Blogs

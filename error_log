@@ -572,3 +572,13 @@
 [22-May-2017 11:38:49 America/Chicago] HTTP 404 (GET /createBlog/images/user.png)
 [22-May-2017 11:38:49 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
 [22-May-2017 11:38:49 America/Chicago] [328/Blogs/index.php:142] Base->run()
+[22-May-2017 11:45:32 America/Chicago] HTTP 404 (GET /viewBlogs/blogger/viewBlog/blogger/2/blogPost/3)
+[22-May-2017 11:45:32 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 11:45:32 America/Chicago] [328/Blogs/index.php:142] Base->run()
+[22-May-2017 12:07:54 America/Chicago] PHP Parse error:  syntax error, unexpected '$bloggerDAO' (T_VARIABLE) in /home/psingh50/public_html/328/Blogs/index.php on line 17
+[22-May-2017 12:08:31 America/Chicago] PHP Fatal error:  Call to undefined method Blogger::getTitle() in /home/psingh50/public_html/328/Blogs/tmp/2ybmx0gme5ogw.3vc8shebwq688.php on line 30
+[22-May-2017 12:08:31 America/Chicago] Fatal error: Call to undefined method Blogger::getTitle()
+[22-May-2017 12:08:31 America/Chicago] [328/Blogs/tmp/2ybmx0gme5ogw.3vc8shebwq688.php:30] 
+[22-May-2017 12:09:48 America/Chicago] PHP Fatal error:  Call to a member function getTitle() on a non-object in /home/psingh50/public_html/328/Blogs/tmp/2ybmx0gme5ogw.3vc8shebwq688.php on line 30
+[22-May-2017 12:09:48 America/Chicago] Fatal error: Call to a member function getTitle() on a non-object
+[22-May-2017 12:09:48 America/Chicago] [328/Blogs/tmp/2ybmx0gme5ogw.3vc8shebwq688.php:30] 

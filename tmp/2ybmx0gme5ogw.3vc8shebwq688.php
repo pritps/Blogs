@@ -7,15 +7,15 @@
 		<!--Bootstrap CSS-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<!--Custom CSS-->
-		<link rel="stylesheet" href="{{ @PROJECT_ROOT }}/styles/styles.css">
-		<link rel="stylesheet" href="{{ @PROJECT_ROOT }}/styles/sidebar.css">
+		<link rel="stylesheet" href="<?= $PROJECT_ROOT ?>/styles/styles.css">
+		<link rel="stylesheet" href="<?= $PROJECT_ROOT ?>/styles/sidebar.css">
 		<title>The Blog Site</title>
 	</head>
 	<body>
 		<nav class="navbar navbar-fixed-left">
 			<div class="navbar-header brand">
 			  <h1 class="text-center">Blog Site</h1>
-			  <img class="img-responsive" src="{{ @PROJECT_ROOT }}/images/trumpet.png" width="150" height="125">
+			  <img class="img-responsive" src="<?= $PROJECT_ROOT ?>/images/trumpet.png" width="150" height="125">
 			</div>
 			<ul class="nav navbar-nav nav-items">
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/"><h4>Home &gt;</h4></a></li>
@@ -27,10 +27,10 @@
 		<div class="container">
 			<div class="row light-grey-background top-margin-30 left-margin-20">
 				<div class="col-md-12">
-					<h1 class="text-center"><strong>{{ @blogPost->getTitle() }}</strong></h1>
-					<img src="{{ @PROJECT_ROOT }}/images/generic-user.png" alt="User Portrait" class="img-responsive pull-right">
+					<h1 class="text-center"><strong><?= $blogPost->getTitle() ?></strong></h1>
+					<img src="<?= $PROJECT_ROOT ?>/images/generic-user.png" alt="User Portrait" class="img-responsive pull-right">
 					<p>
-						{{ @blogPost->getBlogContent() }}
+						<?= $blogPost->getBlogContent().PHP_EOL ?>
 					</p>
 				</div>
 			</div>

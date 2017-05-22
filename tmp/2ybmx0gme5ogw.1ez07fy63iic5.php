@@ -40,7 +40,7 @@
 						<div class="col-md-12 light-grey-background">
 							<h4>My blogs:</h4><hr>
 							<?php foreach (($blogPosts?:[]) as $blogPost): ?>
-								<p><a href="./viewBlog/blogger/<?= $blogger->getId() ?>/blogPost/<?= $blogPost->getId() ?>"><?= $blogPost->getTitle() ?></a> - word count <?= $blogPost->getWordCount() ?> - <?= $blogPost->getCreatedDate() ?></p>
+								<p><a href="<?= $PROJECT_ROOT ?>/viewBlog/blogger/<?= $blogger->getId() ?>/blogPost/<?= $blogPost->getId() ?>"><?= $blogPost->getTitle() ?></a> - word count <?= $blogPost->getWordCount() ?> - <?= $blogPost->getCreatedDate() ?></p>
 								<hr>
 							<?php endforeach; ?>
 						</div>
