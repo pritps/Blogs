@@ -54,10 +54,9 @@
 		$blogger = Blogger::getBloggerInstance($row);
 		
 		if (strlen($row["username"]) == 0 || strlen($row["password"]) == 0 || $row["password"] != $row["verify"]) {
-			//echo "Username: ".$row["username"]." Email: ".$row['email']." pass: ".$row['password']." verify: ".$row['verify'];
 			echo Template::instance()->render('pages/sign_up.html');
 		} else {
-			//echo "Hello, you have successfully created an account";
+			$blogger->setPortrait(getUploadedPhoto($row['username']));
 			$id = $GLOBALS['bloggerDAO']->createBlogger($blogger);
 			$blogger->setId($id);
 			$blogPosts = array();
@@ -169,6 +168,31 @@
 		$view = new View;
 		echo $view->render('pages/login.html');
 	});
+	
+	/**
+	 * This is the helper function to move the uploaded profile photo to
+	 * a permanent location.
+	 *
+	 * @return string The name of the uploaded photo if upload was successful
+	 * and the name of the default profile photo otherwise.
+	*/
+	function getUploadedPhoto($username) {
+		//Only accept jpeg, png, or jpg file types
+		if (isset($_FILES["profilePhoto"]) and $_FILES["profilePhoto"]["error"] == UPLOAD_ERR_OK) {
+			if ($_FILES["profilePhoto"]["type"] != "image/jpeg" && $_FILES["profilePhoto"]["type"] != "image/png"
+				&& $_FILES["profilePhoto"]["type"] != "image/jpg") {
+				//return the location and name of the default profile photo
+				return "generic-user.png";
+			}
+			if (move_uploaded_file($_FILES["profilePhoto"]["tmp_name"],
+								   "images/" . $username . "_" . basename($_FILES["profilePhoto"]["name"]))) {
+				//return name of the uploaded photo
+				return $username . "_" . basename($_FILES["profilePhoto"]["name"]);
+			}
+		}
+		//return the name of the default profile photo
+		return "generic-user.png";
+	}
 	
 	$f3->run();
 ?>

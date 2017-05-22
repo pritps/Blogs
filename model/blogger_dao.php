@@ -119,7 +119,7 @@
         public function getAllBloggers()
         {
              $select = "SELECT * FROM blogger";
-			 $selectBlogCount = 'SELECT count(id) FROM blog_post where blogger_id = :bloggerId';
+			 $selectBlogCount = 'SELECT count(*) FROM blog_post where blogger_id = :bloggerId';
              
             $statement = $this->_pdo->prepare($select);
             $statement->execute();
@@ -134,7 +134,7 @@
 				$statement->bindValue(':bloggerId', $blogger->getId(), PDO::PARAM_INT);
 				$statement->execute();
 				$count = $statement->fetchColumn();
-				$blogger->setBlogCount(!isset($count) || $count == FALSE ? 0 : $count);
+				$blogger->setBlogCount($count);
 				$bloggers[] = $blogger;				
 			}           
 			

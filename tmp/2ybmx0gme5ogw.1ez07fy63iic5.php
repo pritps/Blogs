@@ -7,18 +7,18 @@
 		<!--Bootstrap CSS-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<!--Custom CSS-->
-		<link rel="stylesheet" href="../../styles/styles.css">
-		<link rel="stylesheet" href="../../styles/sidebar.css">
+		<link rel="stylesheet" href="<?= $PROJECT_ROOT ?>/styles/styles.css">
+		<link rel="stylesheet" href="<?= $PROJECT_ROOT ?>/styles/sidebar.css">
 		<title>The Blog Site</title>
 	</head>
 	<body>
 		<nav class="navbar navbar-fixed-left">
 			<div class="navbar-header brand">
 			  <h1 class="text-center">Blog Site</h1>
-			  <img class="img-responsive" src="../../images/trumpet.png" width="150" height="125">
+			  <img class="img-responsive" src="<?= $PROJECT_ROOT ?>/images/trumpet.png" width="150" height="125">
 			</div>
 			<ul class="nav navbar-nav nav-items">
-			  <li class="active"><a href="http://psingh50.greenrivertech.net/328/Blogs/"><h4>Home &gt;</h4></a></li>
+			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/"><h4>Home &gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/sign-up"><h4>Become a Blogger &gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/about-us"><h4>About Us &gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/login"><h4>Login &gt;</h4></a></li>
@@ -49,7 +49,7 @@
 				<div class="col-md-3 top-margin-10 col-md-offset-1">
 					<div class="row">
 						<div class="col-md-12 text-center">
-							<img src="../../images/generic-user.png" alt="User Portrait" class="img-responsive">
+							<img src="<?= $PROJECT_ROOT ?>/images/<?= $blogger->getPortrait() ?>" alt="User Portrait" class="img-responsive">
 						</div>
 					</div>
 					<div class="row top-margin-10">

@@ -5,7 +5,7 @@
 		private $_username;
 		private $_email;
 		private $_password;
-		private $_portrait;
+		private $_portrait = "generic-user.png";
 		private $_bio;
 		private $_blog_count;
 		
@@ -31,7 +31,7 @@
 			$this->_password = $password;
 		}
 		
-		public function setPortrait($portrait) {
+		public function setPortrait($portrait="generic-user.png") {
 			$this->_portrait = $portrait;
 		}
 		
@@ -40,7 +40,7 @@
 		}
 		
 		public function setBlogCount($count) {
-			$this->setBlogCount = $count;
+			$this->_blog_count = $count;
 		}
 		
 		public function getUsername() {

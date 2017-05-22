@@ -28,7 +28,7 @@
 			<div class="row light-grey-background top-margin-30 left-margin-20">
 				<div class="col-md-12">
 					<h1 class="text-center"><strong><?= $blogPost->getTitle() ?></strong></h1>
-					<img src="<?= $PROJECT_ROOT ?>/images/generic-user.png" alt="User Portrait" class="img-responsive pull-right">
+					<img src="<?= $PROJECT_ROOT ?>/images/<?= $blogger->getPortrait() ?>" alt="User Portrait" class="img-responsive pull-right" width="150" height="500">
 					<p>
 						<?= $blogPost->getBlogContent().PHP_EOL ?>
 					</p>

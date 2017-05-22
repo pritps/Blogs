@@ -641,3 +641,63 @@
 [22-May-2017 14:25:08 America/Chicago] PHP Fatal error:  Call to a member function set() on a non-object in /home/psingh50/public_html/328/Blogs/index.php on line 127
 [22-May-2017 14:25:08 America/Chicago] Fatal error: Call to a member function set() on a non-object
 [22-May-2017 14:25:08 America/Chicago] [328/Blogs/index.php:127] 
+[22-May-2017 15:31:00 America/Chicago] PHP Fatal error:  Call to undefined method Blogger::getBlogCoun() in /home/psingh50/public_html/328/Blogs/tmp/2ybmx0gme5ogw.122y7ayggsyck.php on line 39
+[22-May-2017 15:31:00 America/Chicago] Fatal error: Call to undefined method Blogger::getBlogCoun()
+[22-May-2017 15:31:00 America/Chicago] [328/Blogs/tmp/2ybmx0gme5ogw.122y7ayggsyck.php:39] 
+[22-May-2017 15:36:43 America/Chicago] PHP Fatal error:  Call to undefined function isunset() in /home/psingh50/public_html/328/Blogs/model/blogger_dao.php on line 137
+[22-May-2017 15:36:43 America/Chicago] Fatal error: Call to undefined function isunset()
+[22-May-2017 15:36:43 America/Chicago] [328/Blogs/model/blogger_dao.php:137] 
+[22-May-2017 16:06:09 America/Chicago] PHP Parse error:  syntax error, unexpected '.', expecting :: (T_PAAMAYIM_NEKUDOTAYIM) in /home/psingh50/public_html/328/Blogs/tmp/2ybmx0gme5ogw.122y7ayggsyck.php on line 26
+[22-May-2017 16:06:09 America/Chicago] Fatal error: syntax error, unexpected '.', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+[22-May-2017 16:06:09 America/Chicago] [328/Blogs/tmp/2ybmx0gme5ogw.122y7ayggsyck.php:26] 
+[22-May-2017 16:07:20 America/Chicago] PHP Parse error:  syntax error, unexpected '[', expecting :: (T_PAAMAYIM_NEKUDOTAYIM) in /home/psingh50/public_html/328/Blogs/tmp/2ybmx0gme5ogw.122y7ayggsyck.php on line 26
+[22-May-2017 16:07:20 America/Chicago] Fatal error: syntax error, unexpected '[', expecting :: (T_PAAMAYIM_NEKUDOTAYIM)
+[22-May-2017 16:07:20 America/Chicago] [328/Blogs/tmp/2ybmx0gme5ogw.122y7ayggsyck.php:26] 
+[22-May-2017 16:07:47 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/styles/styles.css)
+[22-May-2017 16:07:47 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:07:47 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:07:47 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/styles/sidebar.css)
+[22-May-2017 16:07:47 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:07:47 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:07:47 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/images/trumpet.png)
+[22-May-2017 16:07:47 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:07:47 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:07:47 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/images/lock.png)
+[22-May-2017 16:07:47 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:07:47 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:09:04 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/styles/styles.css)
+[22-May-2017 16:09:04 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:09:04 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:09:04 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/styles/sidebar.css)
+[22-May-2017 16:09:04 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:09:04 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:09:04 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/images/trumpet.png)
+[22-May-2017 16:09:04 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:09:04 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:09:04 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/images/lock.png)
+[22-May-2017 16:09:04 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:09:04 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:13:00 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/styles/styles.css)
+[22-May-2017 16:13:00 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:13:00 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:13:01 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/styles/sidebar.css)
+[22-May-2017 16:13:01 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:13:01 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:13:01 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/images/trumpet.png)
+[22-May-2017 16:13:01 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:13:01 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:13:01 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/images/lock.png)
+[22-May-2017 16:13:01 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:13:01 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:13:12 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/styles/styles.css)
+[22-May-2017 16:13:12 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:13:12 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:13:12 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/styles/sidebar.css)
+[22-May-2017 16:13:12 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:13:12 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:13:12 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/images/trumpet.png)
+[22-May-2017 16:13:12 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:13:12 America/Chicago] [328/Blogs/index.php:173] Base->run()
+[22-May-2017 16:13:13 America/Chicago] HTTP 404 (GET /%7B%7B%20@PROJECT_ROOT%20%7D%7D/images/lock.png)
+[22-May-2017 16:13:13 America/Chicago] [328/Blogs/vendor/bcosca/fatfree-core/base.php:1645] Base->error()
+[22-May-2017 16:13:13 America/Chicago] [328/Blogs/index.php:173] Base->run()

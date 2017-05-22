@@ -10,8 +10,8 @@
 		<!--Bootstrap CSS-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<!--Custom CSS-->		
-		<link rel="stylesheet" href="./styles/styles.css">
-		<link rel="stylesheet" href="./styles/sidebar.css">
+		<link rel="stylesheet" href="<?= $PROJECT_ROOT ?>/styles/styles.css">
+		<link rel="stylesheet" href="<?= $PROJECT_ROOT ?>/styles/sidebar.css">
 		<title>The Blog Site</title>		
 	</head>
 	<body>
@@ -23,7 +23,10 @@
 			<ul class="nav navbar-nav nav-items">
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/sign-up"><h4>Become a Blogger &gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/about-us"><h4>About Us &gt;</h4></a></li>
-			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/login"><h4>Login &gt;</h4></a></li>
+			  <?php if (!isset($SESSION['user']) || empty($SESSION['user'])): ?>
+				<li><a href="http://psingh50.greenrivertech.net/328/Blogs/login"><h4>Login &gt;</h4></a></li>
+				<?php else: ?><li><a href="http://psingh50.greenrivertech.net/328/Blogs/logout"><h4>Login &gt;</h4></a></li>
+			  <?php endif; ?>
 			</ul>			
 		</nav>
 		<div class="container">
@@ -31,11 +34,11 @@
 				<?php foreach (($bloggers?:[]) as $blogger): ?>
 				<div class="col-md-4">					
 					<div class="thumbnail">
-						<img src="./images/generic-user.png" alt="User Portrait">
+						<img src="<?= $PROJECT_ROOT ?>/images/<?= $blogger->getPortrait() ?>" alt="User Portrait" class="img-responsive">
 						<p class="text-center"><?= $blogger->getUsername() ?> Blogger</p>
 						<hr>
 						<div class="row">							
-							<div class="col-md-6"><a href="./viewBlogs/blogger/<?= $blogger->getId() ?>">view blogs</a></div>
+							<div class="col-md-6"><a href="<?= $PROJECT_ROOT ?>/viewBlogs/blogger/<?= $blogger->getId() ?>">view blogs</a></div>
 							<div class="col-md-6 text-right">Total: <?= $blogger->getBlogCount() ?></div>							
 						</div>
 						<hr>
