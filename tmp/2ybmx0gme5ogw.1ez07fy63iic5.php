@@ -26,7 +26,7 @@
 		</nav>
 		<div class="container">
 			<div class="row top-margin-30 light-grey-background left-margin-20">
-				<div class="col-md-12 text-center"><h3><strong>{{ @blogger->getUsername() }} Blogs</strong></h3></div>
+				<div class="col-md-12 text-center"><h3><strong><?= $blogger->getUsername() ?> Blogs</strong></h3></div>
 			</div><!-- row -->
 			<div class="row top-margin-10 left-margin-20">
 				<div class="col-md-8">
@@ -39,10 +39,10 @@
 					<div class="row top-margin-10">
 						<div class="col-md-12 light-grey-background">
 							<h4>My blogs:</h4><hr>
-							<repeat group="{{ @blogPosts }}" value="{{ @blogPost }}">
-								<p><a href="./viewBlog/blogger/{{ @blogger->getId() }}/blogPost/{{ @blogPost->getId() }}">{{ @blogPost->getTitle() }}</a> - word count {{ @blogPost->getWordCount() }} - {{ @blogPost->getCreatedDate() }}</p>
+							<?php foreach (($blogPosts?:[]) as $blogPost): ?>
+								<p><a href="./viewBlog/blogger/<?= $blogger->getId() ?>/blogPost/<?= $blogPost->getId() ?>"><?= $blogPost->getTitle() ?></a> - word count <?= $blogPost->getWordCount() ?> - <?= $blogPost->getCreatedDate() ?></p>
 								<hr>
-							</repeat>
+							<?php endforeach; ?>
 						</div>
 					</div>
 				</div><!-- col-md-6 -->
@@ -54,8 +54,8 @@
 					</div>
 					<div class="row top-margin-10">
 						<div class="col-md-12 light-grey-background">
-							<h5 class="text-center"><strong>{{ @blogger->getUsername() }}</strong></h5><hr>
-							<p>Bio: {{ @blogger->getBio() }}</p>
+							<h5 class="text-center"><strong><?= $blogger->getUsername() ?></strong></h5><hr>
+							<p>Bio: <?= $blogger->getBio() ?></p>
 						</div>
 					</div>
 				</div><!-- col-md-4 -->

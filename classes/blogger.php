@@ -1,6 +1,7 @@
 <?php
 	class Blogger
 	{
+		private $_id;
 		private $_username;
 		private $_email;
 		private $_password;
@@ -12,6 +13,10 @@
 			$this->_username = $username;
 			$this->_email = $email;
 			$this->_password = $password;
+		}
+		
+		public function setId($id) {
+			$this->_id = $id;
 		}
 		
 		public function setUsername($username) {
@@ -62,8 +67,13 @@
 			return $this->_blog_count;
 		}
 		
+		public function getId() {
+			return $this->_id;
+		}
+		
 		public static function getBloggerInstance($row) {
 			$blogger = new Blogger($row['username'],$row['email'],$row['password']);
+			$blogger->setId($row['id']);
 			$blogger->setBio($row['bio']);
 			$blogger->setPortrait($row['portrait']);
 			return $blogger;

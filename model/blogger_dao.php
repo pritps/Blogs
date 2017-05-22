@@ -119,18 +119,26 @@
         public function getAllBloggers()
         {
              $select = "SELECT * FROM blogger";
+			 $selectBlogCount = 'SELECT count(id) FROM blog_post where blogger_id = :bloggerId';
              
             $statement = $this->_pdo->prepare($select);
             $statement->execute();
              
             $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
 			
-			$blogger = array();
-			foreach($rows as $row) {
-				$bloggers[] = Blogger::getBloggerInstance($row);
-			}
+			$statement = $this->_pdo->prepare($selectBlogCount);
 			
-			return $blogger;
+			$bloggers = array();
+			foreach($rows as $row) {
+				$blogger = Blogger::getBloggerInstance($row);
+				$statement->bindValue(':bloggerId', $blogger->getId(), PDO::PARAM_INT);
+				$statement->execute();
+				$count = $statement->fetchColumn();
+				$blogger->setBlogCount(!isset($count) || $count == FALSE ? 0 : $count);
+				$bloggers[] = $blogger;				
+			}           
+			
+			return $bloggers;
         }
         
     }

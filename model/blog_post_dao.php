@@ -41,14 +41,18 @@
          */
         function createBlogPost(BlogPost $blogPost)
         {
-            $insert = 'INSERT INTO blog_post (blogger_id, blog_content, title, created_date)
-										VALUES (:bloggerId, :blogContent, :title, :createdDate)';
+            $insert = 'INSERT INTO blog_post (blogger_id, blog_content, title, excerpt, created_date)
+										VALUES (:bloggerId, :blogContent, :title, :excerpt, :createdDate)';
+										
+			//Set Created Date before the insert
+			$blogPost->setCreatedDate(date("Y-m-d H:i:s"));
 										
             $statement = $this->_pdo->prepare($insert);
 			
             $statement->bindValue(':bloggerId', $blogPost->getBloggerId(), PDO::PARAM_INT);
             $statement->bindValue(':blogContent', $blogPost->getBlogContent(), PDO::PARAM_STR);
             $statement->bindValue(':title', $blogPost->getTitle(), PDO::PARAM_STR);
+			$statement->bindValue(':excerpt', $blogPost->getExcerpt(), PDO::PARAM_STR);
 			$statement->bindValue(':createdDate', $blogPost->getCreatedDate(), PDO::PARAM_STR);       
 			
             $statement->execute();
@@ -76,6 +80,7 @@
 			$statement->bindValue(':blogId', $blogPost->getId(), PDO::PARAM_STR);       
 			
             $statement->execute();
+			
         }
          
         /**
@@ -88,14 +93,20 @@
          */
         function getBlogPost($id)
         {
-            $select = "SELECT id, blogger_id, title, blog_content, created_date
+            $select = "SELECT id, blogger_id, title, blog_content, created_date, excerpt
 						FROM blog_post WHERE id = :blogId";
              
             $statement = $this->_pdo->prepare($select);
             $statement->bindValue(':blogId', $id, PDO::PARAM_INT);
             $statement->execute();
              
-            return $statement->fetch(PDO::FETCH_ASSOC);
+            $row = $statement->fetch(PDO::FETCH_ASSOC);
+		
+			if($row) {
+				return BlogPost::getBlogPostInstance($row);
+			} else {
+				return NULL;
+			}
         }
 		
 		/**
@@ -108,15 +119,31 @@
          */
         function getBlogPosts($id)
         {
-            $select = "SELECT id, blogger_id, title, blog_content, created_date
-						FROM blog_post WHERE id = :bloggerId";
+            $select = "SELECT id, blogger_id, title, blog_content, created_date, excerpt
+						FROM blog_post WHERE blogger_id = :bloggerId order by created_date desc";
              
             $statement = $this->_pdo->prepare($select);
             $statement->bindValue(':bloggerId', $id, PDO::PARAM_INT);
             $statement->execute();
              
-            return $statement->fetchAll(PDO::FETCH_ASSOC);
+            $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+			
+			$blogPosts = array();
+			foreach($rows as $row) {
+				$blogPosts[] = BlogPost::getBlogPostInstance($row);
+			}
+			
+			return $blogPosts;
         }
+		
+		function getBlogCountByUser($id) {
+			$select = 'SELECT count(*) FROM blog_post where blogger_id = :bloggerId';
+            $statement = $this->_pdo->prepare($select);
+            $statement->bindValue(':bloggerId', $id, PDO::PARAM_INT);
+            $statement->execute();
+             
+           return $statement->fetchColumn();
+		}
 		
 		/**
          * Delete a blog post with given id

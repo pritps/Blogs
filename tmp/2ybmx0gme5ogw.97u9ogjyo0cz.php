@@ -36,7 +36,7 @@
 				</div>
 			</div>
 			<div class="jumbotron">
-				<form action="../createBlog/{{ @bloggerId }}" method="post" class="form-horizontal">
+				<form action="../createBlog/<?= $bloggerId ?>" method="post" class="form-horizontal">
 					<div class="row">
 						<div class="form-group">
 							<div class="col-md-4 col-md-push-8 text-center title-lbl">

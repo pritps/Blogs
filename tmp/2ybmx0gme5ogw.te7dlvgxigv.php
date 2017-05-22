@@ -19,7 +19,7 @@
 			</div>
 			<ul class="nav navbar-nav nav-items">
 			  <li class="active"><a href="http://psingh50.greenrivertech.net/328/Blogs/"><h4>Home &gt;</h4></a></li>
-			  <li><a href="./createBlog/{{ @blogger->getId() }}"><h4>Create Blog &gt;</h4></a></li>
+			  <li><a href="./createBlog/<?= $blogger->getId() ?>"><h4>Create Blog &gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/about-us"><h4>About Us &gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/logout"><h4>Log Out &gt;</h4></a></li>
 			</ul>			
@@ -46,21 +46,21 @@
 									</tr>
 								  </thead>
 								  <tbody>
-									<repeat group="{{ @blogPosts }}" value="{{ @blogPost }}">
+									<?php foreach (($blogPosts?:[]) as $blogPost): ?>
 										<tr class="light-grey-background">
-											<td>{{ @blogPost->getTitle() }}</td>
-											<td><a href="./blogger/{{ @blogger->getId() }}/updateBlogPost/{{ @blogPost->getId() }}"><span class="glyphicon glyphicon-wrench"></span></a></td>
-											<td><a href="./blogger/{{ @blogger->getId() }}/deleteBlogPost/{{ @blogPost->getId() }}"><span class="glyphicon glyphicon-remove"></span></a></td>
+											<td><?= $blogPost->getTitle() ?></td>
+											<td><a href="./blogger/<?= $blogger->getId() ?>/updateBlogPost/<?= $blogPost->getId() ?>"><span class="glyphicon glyphicon-wrench"></span></a></td>
+											<td><a href="./blogger/<?= $blogger->getId() ?>/deleteBlogPost/<?= $blogPost->getId() ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
 										</tr>
-									</repeat>
+									<?php endforeach; ?>
 								  </tbody>								  
 							</table>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-3 light-grey-background col-md-offset-1">
-					<h5 class="text-center"><strong>{{ @blogger->getUsername() }}</strong></h5><hr>
-					<p>Bio: {{ @blogger->getBio() }}</p>
+					<h5 class="text-center"><strong><?= $blogger->getUsername() ?></strong></h5><hr>
+					<p>Bio: <?= $blogger->getBio() ?></p>
 				</div>
 			</div>
 		</div><!-- container -->

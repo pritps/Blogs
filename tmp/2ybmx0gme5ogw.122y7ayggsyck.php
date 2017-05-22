@@ -29,15 +29,15 @@
 		</nav>
 		<div class="container">
 			<div class="row left-margin-20">
-				<repeat group="{{ @bloggers }}" value="{{ @blogger }}">
+				<?php foreach (($bloggers?:[]) as $blogger): ?>
 				<div class="col-md-4">					
 					<div class="thumbnail">
 						<img src="./images/generic-user.png" alt="User Portrait">
-						<p class="text-center">{{ @blogger->getUsername() }} Blogger</p>
+						<p class="text-center"><?= $blogger->getUsername() ?> Blogger</p>
 						<hr>
 						<div class="row">							
-							<div class="col-md-6"><a href="./viewBlogs/blogger/{{ @blogger->getId() }}">view blogs</a></div>
-							<div class="col-md-6 text-right">Total: {{ @blogger->getBlogCount() }}</div>							
+							<div class="col-md-6"><a href="./viewBlogs/blogger/<?= $blogger->getId() ?>">view blogs</a></div>
+							<div class="col-md-6 text-right">Total: <?= $blogger->getBlogCount() ?></div>							
 						</div>
 						<hr>
 						<div class="row">
@@ -47,7 +47,7 @@
 						</div>
 					</div>					
 				</div><!-- col-md-4 -->
-				</repeat>
+				<?php endforeach; ?>
 			</div><!-- row -->
 		</div><!-- container -->
 		
