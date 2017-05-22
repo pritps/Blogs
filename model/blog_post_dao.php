@@ -42,10 +42,10 @@
         function createBlogPost(BlogPost $blogPost)
         {
             $insert = 'INSERT INTO blog_post (blogger_id, blog_content, title, excerpt, created_date)
-										VALUES (:bloggerId, :blogContent, :title, :excerpt, :createdDate)';
+										VALUES (:bloggerId, :blogContent, :title, :excerpt, NOW())';
 										
 			//Set Created Date before the insert
-			$blogPost->setCreatedDate(date("Y-m-d H:i:s"));
+			//$blogPost->setCreatedDate(date("Y-m-d H:i:s"));
 										
             $statement = $this->_pdo->prepare($insert);
 			
@@ -53,7 +53,7 @@
             $statement->bindValue(':blogContent', $blogPost->getBlogContent(), PDO::PARAM_STR);
             $statement->bindValue(':title', $blogPost->getTitle(), PDO::PARAM_STR);
 			$statement->bindValue(':excerpt', $blogPost->getExcerpt(), PDO::PARAM_STR);
-			$statement->bindValue(':createdDate', $blogPost->getCreatedDate(), PDO::PARAM_STR);       
+			//$statement->bindValue(':createdDate', $blogPost->getCreatedDate(), PDO::PARAM_STR);       
 			
             $statement->execute();
             

@@ -19,13 +19,13 @@
 			</div>
 			<ul class="nav navbar-nav nav-items">
 			  <li class="active"><a href="http://psingh50.greenrivertech.net/328/Blogs/"><h4>Home &gt;</h4></a></li>
-			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/my-blogs"><h4>My Blogs &gt;</h4></a></li>
+			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/my-blogs/<?= $bloggerId ?>"><h4>My Blogs &gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/about-us"><h4>About Us &gt;</h4></a></li>
-			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/login"><h4>Log Out &gt;</h4></a></li>
+			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/logout"><h4>Log Out &gt;</h4></a></li>
 			</ul>			
 		</nav>
 		<div class="container">
-			<div class="jumbotron">
+			<div class="jumbotron left-margin-20 top-margin-30">
 				<div class="row">
 					<div class="col-md-10">
 						<h1>What's on your mind?</h1> 
@@ -35,7 +35,7 @@
 					</div>					
 				</div>
 			</div>
-			<div class="jumbotron">
+			<div class="jumbotron left-margin-20">
 				<form action="../createBlog/<?= $bloggerId ?>" method="post" class="form-horizontal">
 					<div class="row">
 						<div class="form-group">
