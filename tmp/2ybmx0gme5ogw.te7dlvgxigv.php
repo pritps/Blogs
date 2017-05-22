@@ -7,19 +7,19 @@
 		<!--Bootstrap CSS-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<!--Custom CSS-->
-		<link rel="stylesheet" href="./styles/styles.css">
-		<link rel="stylesheet" href="./styles/sidebar.css">
+		<link rel="stylesheet" href="<?= $PROJECT_ROOT ?>/styles/styles.css">
+		<link rel="stylesheet" href="<?= $PROJECT_ROOT ?>/styles/sidebar.css">
 		<title>The Blog Site</title>
 	</head>
 	<body>
 		<nav class="navbar navbar-fixed-left">
 			<div class="navbar-header brand">
 			  <h1 class="text-center">Blog Site</h1>
-			  <img class="img-responsive" src="./images/trumpet.png" width="150" height="125">
+			  <img class="img-responsive" src="<?= $PROJECT_ROOT ?>/images/trumpet.png" width="150" height="125">
 			</div>
 			<ul class="nav navbar-nav nav-items">
 			  <li class="active"><a href="http://psingh50.greenrivertech.net/328/Blogs/"><h4>Home &gt;</h4></a></li>
-			  <li><a href="./createBlog/<?= $blogger->getId() ?>"><h4>Create Blog &gt;</h4></a></li>
+			  <li><a href="<?= $PROJECT_ROOT ?>/blogger/<?= $blogger->getId() ?>/createBlog"><h4>Create Blog &gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/about-us"><h4>About Us &gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/logout"><h4>Log Out &gt;</h4></a></li>
 			</ul>			
@@ -30,7 +30,7 @@
 					<h2>Your blogs</h2>
 				</div>
 				<div class="col-md-4">
-					<img src="./images/user.png" alt="User Portrait" class="img-responsive pull-right" width="150" height="150">
+					<img src="<?= $PROJECT_ROOT ?>/images/user.png" alt="User Portrait" class="img-responsive pull-right" width="150" height="150">
 				</div>
 			</div>
 			<div class="row top-margin-10 left-margin-20">
@@ -49,8 +49,8 @@
 									<?php foreach (($blogPosts?:[]) as $blogPost): ?>
 										<tr class="light-grey-background">
 											<td><?= $blogPost->getTitle() ?></td>
-											<td><a href="./blogger/<?= $blogger->getId() ?>/updateBlogPost/<?= $blogPost->getId() ?>"><span class="glyphicon glyphicon-wrench"></span></a></td>
-											<td><a href="./blogger/<?= $blogger->getId() ?>/deleteBlogPost/<?= $blogPost->getId() ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
+											<td><a href="<?= $PROJECT_ROOT ?>/blogger/<?= $blogger->getId() ?>/updateBlogPost/<?= $blogPost->getId() ?>"><span class="glyphicon glyphicon-wrench"></span></a></td>
+											<td><a href="<?= $PROJECT_ROOT ?>/blogger/<?= $blogger->getId() ?>/deleteBlogPost/<?= $blogPost->getId() ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
 										</tr>
 									<?php endforeach; ?>
 								  </tbody>								  

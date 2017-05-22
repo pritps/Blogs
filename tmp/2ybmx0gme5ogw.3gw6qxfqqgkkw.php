@@ -21,47 +21,46 @@
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/"><h4>Home &gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/my-blogs/<?= $bloggerId ?>"><h4>My Blogs &gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/about-us"><h4>About Us &gt;</h4></a></li>
-			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/logout"><h4>Log Out &gt;</h4></a></li>
 			</ul>			
 		</nav>
 		<div class="container">
-			<div class="jumbotron left-margin-20 top-margin-30">
+			<div class="jumbotron">
 				<div class="row">
 					<div class="col-md-10">
-						<h1>What's on your mind?</h1> 
+						<h1>Change your mind?</h1> 
 					</div>
 					<div class="col-md-2 pull-right">
 						<img src="<?= $PROJECT_ROOT ?>/images/writing.png" width="175" height="200">
 					</div>					
 				</div>
 			</div>
-			<div class="jumbotron left-margin-20">
-				<form action="<?= $PROJECT_ROOT ?>/blogger/<?= $bloggerId ?>/createBlog" method="post" class="form-horizontal">
+			<div class="jumbotron">
+				<form action="<?= $PROJECT_ROOT ?>/blogger/<?= $bloggerId ?>/updateBlogPost/<?= $blogPost->getId() ?>" method="post" class="form-horizontal">
 					<div class="row">
 						<div class="form-group">
 							<div class="col-md-4 col-md-push-8 text-center title-lbl">
 								<label class="control-label" for="title">Title</label>
 							</div>
 							<div class="col-md-8 col-md-pull-4 title-field">
-								<input type="text" class="form-control" id="title" name="title">
+								<input type="text" class="form-control" id="title" name="title" value="<?= $blogPost->getTitle() ?>">
 							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-12 blog-entry-lbl">
 								<label class="control-label" for="blog-content">Blog Entry</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<textarea class="form-control" id="blog-content" name="blog-content" rows="10"></textarea>
+								<textarea class="form-control" id="blog-content" name="blog-content" rows="10"><?= $blogPost->getBlogContent() ?></textarea>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12 text-center">
-							<button type="submit" class="btn btn-primary btn-lg"><h4>Save</h4></button>
+							<button type="submit" class="btn btn-primary btn-lg"><h4>Update</h4></button>
 						</div>
 					</div>
 				</form>

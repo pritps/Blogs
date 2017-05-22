@@ -90,7 +90,6 @@
 		{
 			$blogPost = new BlogPost($row['blogger_id'],$row['title'],$row['blog_content']);
 			$blogPost->setId($row['id']);
-			$blogPost->setExcerpt($row['excerpt']);
 			$blogPost->setCreatedDate($row['created_date']);
 			return $blogPost;
 		}

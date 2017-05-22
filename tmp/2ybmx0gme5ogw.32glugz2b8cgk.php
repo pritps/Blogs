@@ -7,15 +7,15 @@
 		<!--Bootstrap CSS-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<!--Custom CSS-->
-		<link rel="stylesheet" href="{{ @PROJECT_ROOT }}/styles/styles.css">
-		<link rel="stylesheet" href="{{ @PROJECT_ROOT }}/styles/sidebar.css">
+		<link rel="stylesheet" href="<?= $PROJECT_ROOT ?>/styles/styles.css">
+		<link rel="stylesheet" href="<?= $PROJECT_ROOT ?>/styles/sidebar.css">
 		<title>The Blog Site</title>
 	</head>
 	<body>
 		<nav class="navbar navbar-fixed-left">
 			<div class="navbar-header brand">
 			  <h1 class="text-center">Blog Site</h1>
-			  <img class="img-responsive" src="{{ @PROJECT_ROOT }}/images/trumpet.png" width="150" height="125">
+			  <img class="img-responsive" src="<?= $PROJECT_ROOT ?>/images/trumpet.png" width="150" height="125">
 			</div>
 			<ul class="nav navbar-nav nav-items">
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/"><h4>Home &gt;</h4></a></li>
@@ -31,12 +31,12 @@
 						<p>Create a new account below</p>
 					</div>
 					<div class="col-md-2 pull-right">
-						<img src="{{ @PROJECT_ROOT }}/images/writing.png" width="175" height="200">
+						<img src="<?= $PROJECT_ROOT ?>/images/writing.png" width="175" height="200">
 					</div>					
 				</div>
 			</div>
 			<div class="jumbotron left-margin-20">
-				<form action="{{ @PROJECT_ROOT }}/sign-up" method="post" class="form-horizontal">
+				<form action="<?= $PROJECT_ROOT ?>/sign-up" method="post" class="form-horizontal">
 					<div class="row">
 						<div class="col-md-5">
 							<div class="row login-fields">

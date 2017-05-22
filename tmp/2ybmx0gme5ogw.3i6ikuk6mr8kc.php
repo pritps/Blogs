@@ -19,49 +19,47 @@
 			</div>
 			<ul class="nav navbar-nav nav-items">
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/"><h4>Home &gt;</h4></a></li>
-			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/my-blogs/<?= $bloggerId ?>"><h4>My Blogs &gt;</h4></a></li>
+			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/sign-up"><h4>Become a Blogger &gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/about-us"><h4>About Us &gt;</h4></a></li>
-			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/logout"><h4>Log Out &gt;</h4></a></li>
 			</ul>			
 		</nav>
 		<div class="container">
 			<div class="jumbotron left-margin-20 top-margin-30">
 				<div class="row">
-					<div class="col-md-10">
-						<h1>What's on your mind?</h1> 
+					<div class="col-md-6">
+						<h1>Welcome back!</h1> 
+						<p>Please login below</p>
 					</div>
-					<div class="col-md-2 pull-right">
-						<img src="<?= $PROJECT_ROOT ?>/images/writing.png" width="175" height="200">
+					<div class="col-md-6">
+						<img src="<?= $PROJECT_ROOT ?>/images/lock.png" width="150" height="150" class="pull-right">
 					</div>					
 				</div>
 			</div>
 			<div class="jumbotron left-margin-20">
-				<form action="<?= $PROJECT_ROOT ?>/blogger/<?= $bloggerId ?>/createBlog" method="post" class="form-horizontal">
+				<form action="<?= $PROJECT_ROOT ?>/login" method="post" class="form-horizontal">
 					<div class="row">
-						<div class="form-group">
-							<div class="col-md-4 col-md-push-8 text-center title-lbl">
-								<label class="control-label" for="title">Title</label>
+						<div class="col-md-4 col-md-offset-4 login-fields">
+							<div class="form-group">
+								<div class="col-md-4 col-md-push-8 text-center username-lbl">
+									<label class="control-label sign-up-form-label" for="username">Username</label>
+								</div>
+								<div class="col-md-8 col-md-pull-4 username-field">
+									<input type="text" class="form-control" id="username" name="username">
+								</div>
 							</div>
-							<div class="col-md-8 col-md-pull-4 title-field">
-								<input type="text" class="form-control" id="title" name="title">
+							<div class="form-group">
+								<div class="col-md-4 col-md-push-8 text-center pwd-lbl">
+									<label class="control-label sign-up-form-label" for="pwd">Password</label>
+								</div>
+								<div class="col-md-8 col-md-pull-4 pwd-field">
+									<input type="password" class="form-control" id="pwd" name="pwd">
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-12">
-								<label class="control-label" for="blog-content">Blog Entry</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<textarea class="form-control" id="blog-content" name="blog-content" rows="10"></textarea>
-							</div>
-						</div>
-					</div>
-					<div class="row">
+					<div class="row top-margin-10">
 						<div class="col-md-12 text-center">
-							<button type="submit" class="btn btn-primary btn-lg"><h4>Save</h4></button>
+							<button type="submit" class="btn btn-primary btn-lg">Log In</button>
 						</div>
 					</div>
 				</form>
