@@ -109,6 +109,23 @@
 			}
         }
 		
+		function getMostRecentBlogPost($id) {
+			$select = "SELECT id, blogger_id, title, blog_content, created_date, excerpt
+						FROM blog_post WHERE blogger_id = :bloggerId order by created_date desc limit 1";
+             
+            $statement = $this->_pdo->prepare($select);
+            $statement->bindValue(':bloggerId', $id, PDO::PARAM_INT);
+            $statement->execute();
+             
+            $row = $statement->fetch(PDO::FETCH_ASSOC);
+		
+			if($row) {
+				return BlogPost::getBlogPostInstance($row);
+			} else {
+				return NULL;
+			}
+		}
+		
 		/**
          * Return all BlogPost(s) for a given blogger id.
          *

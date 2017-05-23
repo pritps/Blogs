@@ -21,12 +21,18 @@
 			  <img class="img-responsive" src="./images/trumpet.png" width="150" height="125">
 			</div>
 			<ul class="nav navbar-nav nav-items">
-			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/sign-up"><h4>Become a Blogger &gt;</h4></a></li>
-			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/about-us"><h4>About Us &gt;</h4></a></li>
 			  <check if="{{ !isset(@SESSION['user']) || empty(@SESSION['user']) }}">
-				<true><li><a href="http://psingh50.greenrivertech.net/328/Blogs/login"><h4>Login &gt;</h4></a></li></true>
-				<false><li><a href="http://psingh50.greenrivertech.net/328/Blogs/logout"><h4>Login &gt;</h4></a></li></false>
+				<true>
+					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/login"><h4>Login &gt;</h4></a></li>
+					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/sign-up"><h4>Become a Blogger &gt;</h4></a></li>
+				</true>
+				<false>
+					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/my-blogs/{{ @bloggerId }}"><h4>My Blogs &gt;</h4></a></li>
+					<li><a href="{{ @PROJECT_ROOT }}/blogger/{{ @bloggerId }}/createBlog"><h4>Create Blog &gt;</h4></a></li>
+					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/logout"><h4>Logout&gt;</h4></a></li>
+				</false>
 			  </check>
+			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/about-us"><h4>About Us &gt;</h4></a></li>
 			</ul>			
 		</nav>
 		<div class="container">

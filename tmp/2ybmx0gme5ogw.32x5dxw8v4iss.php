@@ -21,29 +21,47 @@
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/"><h4>Home &gt;</h4></a></li>
 			  <?php if (!isset($SESSION['user']) || empty($SESSION['user'])): ?>
 				
-					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/login"><h4>Login &gt;</h4></a></li>
 					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/sign-up"><h4>Become a Blogger &gt;</h4></a></li>
+					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/login"><h4>Login &gt;</h4></a></li>
 				
 				<?php else: ?>
-					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/my-blogs/<?= $blogger->getId() ?>"><h4>My Blogs &gt;</h4></a></li>
-					<li><a href="<?= $PROJECT_ROOT ?>/blogger/<?= $blogger->getId() ?>/createBlog"><h4>Create Blog &gt;</h4></a></li>
-					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/logout"><h4>Logout&gt;</h4></a></li>
+					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/my-blogs/<?= $bloggerId ?>"><h4>My Blogs &gt;</h4></a></li>
+					<li><a href="<?= $PROJECT_ROOT ?>/blogger/<?= $bloggerId ?>/createBlog"><h4>Create Blog &gt;</h4></a></li>
+					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/logout"><h4>Logout &gt;</h4></a></li>
 				
-			  <?php endif; ?>
-			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/about-us"><h4>About Us &gt;</h4></a></li>
+			  <?php endif; ?>			  
 			</ul>			
 		</nav>
 		<div class="container">
-			<div class="row light-grey-background top-margin-30 left-margin-20">
-				<div class="col-md-12">
-					<h1 class="text-center"><strong><?= $blogPost->getTitle() ?></strong></h1>
-					<img src="<?= $PROJECT_ROOT ?>/images/<?= $blogger->getPortrait() ?>" alt="User Portrait" class="img-responsive pull-right" width="150" height="500">
-					<p>
-						<?= $blogPost->getBlogContent().PHP_EOL ?>
+			<div class="jumbotron top-margin-30 left-margin-20">
+				<div class="row">
+					<div class="col-md-10">
+						<h1>The Blog site</h1> 
+						<p>Your one-stop shop for internet blogs</p>
+					</div>
+					<div class="col-md-2 pull-right">
+						<img src="./images/blog_logo.png" width="150" height="150">
+					</div>					
+				</div>
+			</div>
+			<div class="jumbotron top-margin-30 left-margin-20">
+				<h4><strong>The internet is abuzz with our blog content.</strong></h4><hr>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut porta dui. Nam
+					maximus et mauris eu tempor. Nulla rhoncus lorem pharetra molestie blandit. Set
+					pellentesque lacus quis aliquam maximus. Integer sodales eget purus vitae condimentum.
+					Phasellus neque neque, rutrum ut mattis ut, tinicidunt eget ante. Vivamus
+					faucibus augue in euismod ultrices. 
+				</p><hr>
+				<h4><strong>Hear what others are saying about us!</strong></h4>
+				<div id="comments">
+					<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut porta dui. Nam
+						maximus et mauris eu tempor." - long time user Sally Nguyen
+					</p>
+					<p>"Lorem ipsum dolor sit amet, consectetur..." - blog contributer Terry Stone
 					</p>
 				</div>
 			</div>
-		</div><!-- container -->
+		</div>
 		<!--JQuery-->
 		<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
 			crossorigin="anonymous"></script>

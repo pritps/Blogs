@@ -19,9 +19,18 @@
 			</div>
 			<ul class="nav navbar-nav nav-items">
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/"><h4>Home &gt;</h4></a></li>
-			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/sign-up"><h4>Become a Blogger &gt;</h4></a></li>
-			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/about-us"><h4>About Us &gt;</h4></a></li>
-			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/login"><h4>Login &gt;</h4></a></li>
+			  <?php if (!isset($SESSION['user']) || empty($SESSION['user'])): ?>
+				
+					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/sign-up"><h4>Become a Blogger &gt;</h4></a></li>
+					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/login"><h4>Login &gt;</h4></a></li>
+				
+				<?php else: ?>
+					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/my-blogs/<?= $blogger->getId() ?>"><h4>My Blogs &gt;</h4></a></li>
+					<li><a href="<?= $PROJECT_ROOT ?>/blogger/<?= $blogger->getId() ?>/createBlog"><h4>Create Blog &gt;</h4></a></li>
+					<li><a href="http://psingh50.greenrivertech.net/328/Blogs/logout"><h4>Logout &gt;</h4></a></li>
+				
+			  <?php endif; ?>			  
+			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/about-us"><h4>About Us &gt;</h4></a></li>			  
 			</ul>			
 		</nav>
 		<div class="container">
@@ -32,7 +41,7 @@
 				<div class="col-md-8">
 					<div class="row top-margin-10">
 						<div class="col-md-12 light-grey-background">
-							<h4><a href="#"><strong>My most recent blog:</strong></a></h4>
+							<h4><a href="<?= $PROJECT_ROOT ?>/viewBlog/blogger/<?= $blogger->getId() ?>/mostRecent"><strong>My most recent blog:</strong></a></h4>
 							<p>Excerpt:This is suppose to be an excerpt to my most recent blog, but there is no field to capture that.</p>
 						</div>
 					</div>

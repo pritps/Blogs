@@ -21,6 +21,10 @@
 	$f3->route('GET /', function($f3){
 		$bloggers = $GLOBALS['bloggerDAO']->getAllBloggers();
 		$f3->set('bloggers', $bloggers);
+		//If logged in user
+		if (isset($_SESSION['user']) || !empty($_SESSION['user'])) {
+			$f3->set('bloggerId', $_SESSION['user']->getId());
+		}
 		echo Template::instance()->render('pages/home.html');
 	});
 	
@@ -75,10 +79,19 @@
 		echo Template::instance()->render('pages/user_blogs.html');
 	});
 	
-		//View user blog
+	//View user blog
 	$f3->route('GET /viewBlog/blogger/@bloggerId/blogPost/@blogPostId', function($f3, $params){
 		$blogger = $GLOBALS['bloggerDAO']->getBloggerById($params['bloggerId']);
 		$blogPost = $GLOBALS['blogPostDAO']->getBlogPost($params['blogPostId']);
+		$f3->set('blogger', $blogger);
+		$f3->set('blogPost', $blogPost);
+		echo Template::instance()->render('pages/user_blog.html');
+	});
+	
+	//View most recent blog of a user
+	$f3->route('GET /viewBlog/blogger/@bloggerId/mostRecent', function($f3, $params){
+		$blogger = $GLOBALS['bloggerDAO']->getBloggerById($params['bloggerId']);
+		$blogPost = $GLOBALS['blogPostDAO']->getMostRecentBlogPost($params['bloggerId']);
 		$f3->set('blogger', $blogger);
 		$f3->set('blogPost', $blogPost);
 		echo Template::instance()->render('pages/user_blog.html');
@@ -121,52 +134,66 @@
 	
 	//Update a Blog Post
 	$f3->route('GET /blogger/@bloggerId/updateBlogPost/@blogPostId', function($f3, $params) {
-		$blogPost = $GLOBALS['blogPostDAO']->getBlogPost($params['blogPostId']);
-		
-		$f3->set('bloggerId', $params['bloggerId']);
-		$f3->set('blogPost', $blogPost);
-		echo Template::instance()->render('pages/update_blog.html');
+		if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+			echo Template::instance()->render('pages/login.html');
+		} else {
+			$blogPost = $GLOBALS['blogPostDAO']->getBlogPost($params['blogPostId']);
+			
+			$f3->set('bloggerId', $params['bloggerId']);
+			$f3->set('blogPost', $blogPost);
+			echo Template::instance()->render('pages/update_blog.html');
+		}
 	});
 	
 	$f3->route('POST /blogger/@bloggerId/updateBlogPost/@blogPostId', function($f3, $params) {
-		//update the blog post
-		$blogPost = $GLOBALS['blogPostDAO']->getBlogPost($params['blogPostId']);
-		$row = array("title" => $_POST['title'], "blog_content" => $_POST['blog-content']);
-		$blogPost->setTitle($row['title']);
-		$blogPost->setBlogContent($row['blog_content']);
-		$blogPost = $GLOBALS['blogPostDAO']->updateBlogPost($blogPost);
-		
-		//load the updated set of blogs
-		$blogPosts = $GLOBALS['blogPostDAO']->getBlogPosts($params['bloggerId']);
-		$f3->set('blogger', $_SESSION['user']);
-		$f3->set('blogPosts', $blogPosts);
-		echo Template::instance()->render('pages/logged_in_user_blogs.html');
+		if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+			echo Template::instance()->render('pages/login.html');
+		} else {
+			//update the blog post
+			$blogPost = $GLOBALS['blogPostDAO']->getBlogPost($params['blogPostId']);
+			$row = array("title" => $_POST['title'], "blog_content" => $_POST['blog-content']);
+			$blogPost->setTitle($row['title']);
+			$blogPost->setBlogContent($row['blog_content']);
+			$blogPost = $GLOBALS['blogPostDAO']->updateBlogPost($blogPost);
+			
+			//load the updated set of blogs
+			$blogPosts = $GLOBALS['blogPostDAO']->getBlogPosts($params['bloggerId']);
+			$f3->set('blogger', $_SESSION['user']);
+			$f3->set('blogPosts', $blogPosts);
+			echo Template::instance()->render('pages/logged_in_user_blogs.html');
+		}
 	});
 	
 	//Delete a Blog Post
 	$f3->route('GET /blogger/@bloggerId/deleteBlogPost/@blogPostId', function($f3, $params) {
-		//delete the blog post
-		$blogPost = $GLOBALS['blogPostDAO']->deleteBlogPost($params['blogPostId']);
-		
-		//load the updated set of blogs
-		$blogPosts = $GLOBALS['blogPostDAO']->getBlogPosts($params['bloggerId']);
-		$f3->set('blogger', $_SESSION['user']);
-		$f3->set('blogPosts', $blogPosts);
-		echo Template::instance()->render('pages/logged_in_user_blogs.html');
+		if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+			echo Template::instance()->render('pages/login.html');
+		} else {
+			//delete the blog post
+			$blogPost = $GLOBALS['blogPostDAO']->deleteBlogPost($params['blogPostId']);
+			
+			//load the updated set of blogs
+			$blogPosts = $GLOBALS['blogPostDAO']->getBlogPosts($params['bloggerId']);
+			$f3->set('blogger', $_SESSION['user']);
+			$f3->set('blogPosts', $blogPosts);
+			echo Template::instance()->render('pages/logged_in_user_blogs.html');
+		}
 	});
 	
 	//About Us Page
-	$f3->route('GET /about-us', function() {
-		$view = new View;
-		echo $view->render('pages/about_us.html');
+	$f3->route('GET /about-us', function($f3) {
+		//If logged in user
+		if (isset($_SESSION['user']) || !empty($_SESSION['user'])) {
+			$f3->set('bloggerId', $_SESSION['user']->getId());
+		}
+		echo Template::instance()->render('pages/about_us.html');
 	});
 	
 	//Logout
 	$f3->route('GET /logout', function() {
 		session_unset();
 		session_destroy();
-		$view = new View;
-		echo $view->render('pages/login.html');
+		echo Template::instance()->render('pages/login.html');
 	});
 	
 	/**
