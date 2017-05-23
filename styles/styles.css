@@ -43,10 +43,11 @@
 	width: 100px;
 }
 
-.bordered-label {
+.bordered-lbl .col-md-12, .bordered-lbl .col-md-4 {
 	border: 1px solid #ccc;
 	padding-left: 0px;
 	padding-right: 0px;
+	padding-bottom: 5px;
 }
 
 .form-horizontal .control-label {

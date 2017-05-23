@@ -66,6 +66,7 @@
 			$blogPosts = array();
 			$f3->set('blogger', $blogger);
 			$f3->set('blogPosts', $blogPosts);
+			$_SESSION['user'] = $blogger;
 			echo Template::instance()->render('pages/logged_in_user_blogs.html');
 		}		
 	});

@@ -39,8 +39,10 @@
 				<form action="<?= $PROJECT_ROOT ?>/blogger/<?= $bloggerId ?>/createBlog" method="post" class="form-horizontal">
 					<div class="row">
 						<div class="form-group">
-							<div class="col-md-4 col-md-push-8 text-center title-lbl">
-								<label class="control-label" for="title">Title</label>
+							<div class="bordered-lbl">
+								<div class="col-md-4 col-md-push-8 text-center">
+									<label class="control-label" for="title">Title</label>
+								</div>
 							</div>
 							<div class="col-md-8 col-md-pull-4 title-field">
 								<input type="text" class="form-control" id="title" name="title">
@@ -48,12 +50,14 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="row">
-							<div class="col-md-12">
-								<label class="control-label" for="blog-content">Blog Entry</label>
+						<div class="row"">
+							<div class="bordered-lbl">
+								<div class="col-md-12 text-center">
+									<label class="control-label" for="blog-content">Blog Entry</label>
+								</div>
 							</div>
 						</div>
-						<div class="row">
+						<div class="row top-margin-10">
 							<div class="col-md-12">
 								<textarea class="form-control" id="blog-content" name="blog-content" rows="10"></textarea>
 							</div>

@@ -83,15 +83,19 @@
 										<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
 										<input type="file" class="form-control" id="profilePhoto" name="profilePhoto" value=""/>
 									</div>
-									<div class="col-md-4">
-										<label class="control-label " for="profilePhoto">Upload Portrait</label>
+									<div class="bordered-lbl">
+										<div class="col-md-4 text-center">
+											<label class="control-label " for="profilePhoto">Upload Portrait</label>
+										</div>
 									</div>
 								</div>								
 							</div>
 							<div class="row">
 								<div class="form-group">
-									<div class="col-md-12 bordered-label text-center">
-										<label class="control-label " for="bio">Quick Biography</label>
+									<div class="bordered-lbl">
+										<div class="col-md-12 text-center">
+											<label class="control-label " for="bio">Quick Biography</label>
+										</div>
 									</div>
 									<div class="col-md-12 top-margin-10">
 										<textarea class="form-control" id="biography" name="bio" rows="7"></textarea>

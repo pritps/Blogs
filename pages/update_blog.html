@@ -20,11 +20,13 @@
 			<ul class="nav navbar-nav nav-items">
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/"><h4>Home &gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/my-blogs/{{ @bloggerId }}"><h4>My Blogs &gt;</h4></a></li>
+			  <li><a href="{{ @PROJECT_ROOT }}/blogger/{{ @bloggerId }}/createBlog"><h4>Create Blog &gt;</h4></a></li>
+			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/logout"><h4>Logout&gt;</h4></a></li>
 			  <li><a href="http://psingh50.greenrivertech.net/328/Blogs/about-us"><h4>About Us &gt;</h4></a></li>
 			</ul>			
 		</nav>
 		<div class="container">
-			<div class="jumbotron">
+			<div class="jumbotron top-margin-30 left-margin-20">
 				<div class="row">
 					<div class="col-md-10">
 						<h1>Change your mind?</h1> 
@@ -34,12 +36,14 @@
 					</div>					
 				</div>
 			</div>
-			<div class="jumbotron">
+			<div class="jumbotron left-margin-20">
 				<form action="{{ @PROJECT_ROOT }}/blogger/{{ @bloggerId }}/updateBlogPost/{{ @blogPost->getId() }}" method="post" class="form-horizontal">
 					<div class="row">
 						<div class="form-group">
-							<div class="col-md-4 col-md-push-8 text-center title-lbl">
-								<label class="control-label" for="title">Title</label>
+							<div class="bordered-lbl">
+								<div class="col-md-4 col-md-push-8 text-center">
+									<label class="control-label" for="title">Title</label>
+								</div>
 							</div>
 							<div class="col-md-8 col-md-pull-4 title-field">
 								<input type="text" class="form-control" id="title" name="title" value="{{ @blogPost->getTitle() }}">
@@ -48,11 +52,13 @@
 					</div>
 					<div class="form-group">
 						<div class="row">
-							<div class="col-md-12 blog-entry-lbl">
-								<label class="control-label" for="blog-content">Blog Entry</label>
+							<div class="bordered-lbl">
+								<div class="col-md-12 text-center">
+									<label class="control-label" for="blog-content">Blog Entry</label>
+								</div>
 							</div>
 						</div>
-						<div class="row">
+						<div class="row top-margin-10">
 							<div class="col-md-12">
 								<textarea class="form-control" id="blog-content" name="blog-content" rows="10">{{ @blogPost->getBlogContent() }}</textarea>
 							</div>
