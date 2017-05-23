@@ -9,8 +9,14 @@
      */
     class BloggerDAO
     {
+		/**
+		 *@var The PDO instance to connect to the database
+		*/
         private $_pdo;
         
+		/**
+		 *Constructor to construct a PDO instance that provides a connection to the database
+		*/
         public function __construct()
         {
             //Require configuration file
@@ -35,7 +41,7 @@
          * Create a new Blogger, member of the Blogging website
          *
          * @access public
-         * @param Blogger
+         * @param Blogger with form data
          *
          * @return the id of the blogger inserted or sequence value
          */
@@ -64,7 +70,7 @@
          * @access public
          * @param int $id the id of the Blogger
          *
-         * @return 
+         * @return Blogger instance or NULL if Blogger with given id is not found
          */
         public function getBloggerById($id)
         {
@@ -114,7 +120,7 @@
 		/**
          * Return all bloggers registered for the Blogging website
          *
-         * @return 
+         * @return Blogger instance that exist in the system
          */
         public function getAllBloggers()
         {

@@ -9,8 +9,14 @@
      */
     class BlogPostDAO
     {
+		/**
+		 *@var The PDO instance to connect to the database
+		*/
         private $_pdo;
         
+		/**
+		 *Constructor to construct a PDO instance that provides a connection to the database
+		*/
         function __construct()
         {
             //Require configuration file
@@ -35,7 +41,7 @@
          * Create a new blog post for a blogger
          *
          * @access public
-         * @param BlogPost $blogPost the BlogPost object to create
+         * @param BlogPost $blogPost the BlogPost instance to create
          *
          * @return the id of the blog post inserted or sequence value
          */
@@ -65,7 +71,7 @@
          * Update a blog post
          *
          * @access public
-         * @param BlogPost $blogPost the BlogPost object to update
+         * @param BlogPost $blogPost the BlogPost instance to update
          */
         function updateBlogPost(BlogPost $blogPost)
         {
@@ -89,7 +95,7 @@
          * @access public
          * @param int $id the id of the BlogPost
          *
-         * @return 
+         * @return BlogPost instance if one found by given id or NULl otherwise
          */
         function getBlogPost($id)
         {
@@ -109,7 +115,16 @@
 			}
         }
 		
-		function getMostRecentBlogPost($id) {
+		/**
+         * Returns the most recent BlogPost of the given Blogger id.
+         *
+         * @access public
+         * @param int $id the id of the Blogger
+         *
+         * @return BlogPost instance that is the most recent if one found by given blogger id or NULl otherwise
+         */
+		function getMostRecentBlogPost($id)
+		{
 			$select = "SELECT id, blogger_id, title, blog_content, created_date, excerpt
 						FROM blog_post WHERE blogger_id = :bloggerId order by created_date desc limit 1";
              
@@ -132,7 +147,7 @@
          * @access public
          * @param int $id the id of the Blogger
          *
-         * @return 
+         * @return an array of BlogPost instances for a blogger
          */
         function getBlogPosts($id)
         {
@@ -153,24 +168,15 @@
 			return $blogPosts;
         }
 		
-		function getBlogCountByUser($id) {
-			$select = 'SELECT count(*) FROM blog_post where blogger_id = :bloggerId';
-            $statement = $this->_pdo->prepare($select);
-            $statement->bindValue(':bloggerId', $id, PDO::PARAM_INT);
-            $statement->execute();
-             
-           return $statement->fetchColumn();
-		}
-		
 		/**
          * Delete a blog post with given id
          *
          * @access public
          * @param int $id the id of the Blog Post
          *
-         * @return 
          */
-		function deleteBlogPost($id) {
+		function deleteBlogPost($id)
+		{
 			$delete = "DELETE FROM blog_post WHERE id = :id";
 			
 			$statement = $this->_pdo->prepare($delete);
